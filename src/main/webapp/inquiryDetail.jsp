@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="./script.js"></script>
 </head>
 <body>
 	<%@include file="header.jsp"%>
@@ -22,6 +23,7 @@
 			<div class="wrapper">
 				<table>
 					<tr>
+						<th>예약코드</th>
 						<th>출발지</th>
 						<th>도착지</th>
 						<th>출발시각</th>
@@ -32,20 +34,26 @@
 					</tr>
 					<c:forEach var="inq" items="${inqList}" varStatus="status">
 					<tr>
+						<td>${inq.r_no}</td>
 						<td>${inq.depart}</td>
 						<td>${inq.arrival}</td>
 						<td>${inq.d_time}</td>
 						<td>${inq.duration}</td>
 						<td>${inq.ticket}</td>
 						<td>
-							<button><a href="">예약 수정</a></button>
+							<button><a href="./modify?r_no=${inq.r_no}">예약 변경</a></button>
 						</td>
 						<td>
-							<button><a href="">예약 취소</a></button>
+							<button type="button" onclick="inq_delete(${inq.r_no});">예약 취소</button>
 						</td>
 					</tr>
 					</c:forEach>
+					<form name="frm_inq" method="post" action="delete">
+					<input id="ttest" type="hidden" name="r_no" value="0" />
+					<input type="hidden" name="id" value="${id}" />
+					</form>
 				</table>
+				<button type="button" onclick="location.href='inquiry';">돌아가기</button>
 			</div>
 		</section>
 	<%@include file="footer.jsp"%>

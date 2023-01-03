@@ -23,7 +23,7 @@
 							</tr>
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="text" name="pw" maxlength="15"></td>
+								<td><input type="password" name="pw" maxlength="15"></td>
 							</tr>
 							<tr>
 								<th>이름</th>

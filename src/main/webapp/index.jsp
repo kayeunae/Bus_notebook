@@ -10,7 +10,6 @@
 <body>
 	<%@include file="header.jsp"%>
 	<section>
-	
 		<div class="wrapper">
 			<div class="big"><a href="view">시간표 조회</a></div>
 			<div class="big"><a href="inquiry">예약 조회</a></div>

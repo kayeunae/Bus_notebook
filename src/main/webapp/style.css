@@ -65,6 +65,7 @@ button{
 	width: 900px;
 	margin:0 auto;
 }
+.noflex{display: block !important;}
 
 .big {
 	margin: 80px;

@@ -21,6 +21,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import DAO.BusDAO;
 import DTO.Bus;
 import DTO.Inquiry;
+import DTO.Modify;
 import DTO.Passenger;
 import DTO.Reservation;
 
@@ -81,14 +82,22 @@ public class BusContoller extends HttpServlet {
 			case "/inquirDetail" :
 				site = inquirDetail(request);
 				break;
-				
+			case "/modify" :
+				site = getModify(request);
+				break;
+			case "/sbmModify" :
+				site = subModify(request, response);
+				break;
+			case "/delete" :
+				site = subDelete(request, response);
+				break;
 		}
 		if(site.startsWith("redirect:/")) {	//redirect (페이지 이동)
 			String rview = site.substring("redirect:/".length()); //redirect:/문자열만큼 잘라준다.
 			System.out.println("substring" + rview);
 			response.sendRedirect(rview);
 		} else if (site.startsWith("null")) { 
-			System.out.println("null");
+			System.out.println("startwith: null");
 		} else { //forward (페이지 이동)
 			ctx.getRequestDispatcher("/" + site).forward(request, response);
 		}	
@@ -172,6 +181,7 @@ public class BusContoller extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			System.out.println(rev.getId());
 			if (reserve.equals("1")) {
+				dao.insertRev(rev);
 				out.println("<script>");
 				out.println("alert('예약이 완료되었습니다!');");
 				out.println("const url = location.origin;");
@@ -234,5 +244,63 @@ public class BusContoller extends HttpServlet {
 			request.setAttribute("error", "예약 조회가 정상적으로 처리되지 않았습니다!");
 		}
 		return "inquiryDetail.jsp";
+	}
+	
+	public String getModify(HttpServletRequest request) {
+		String reserveNo = request.getParameter("r_no");
+		Modify modi;
+		ArrayList<Bus> blist;
+		
+		try {
+			modi = dao.modify(reserveNo);
+			blist = dao.getView();
+			request.setAttribute("blist", blist);
+			request.setAttribute("modi", modi);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "modify.jsp";
+	}
+	
+	public String subModify(HttpServletRequest request, HttpServletResponse response) {
+		Reservation reserv = new Reservation();
+		
+		try {
+			BeanUtils.populate(reserv, request.getParameterMap());
+			dao.subModify(reserv);
+			
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = response.getWriter();
+//			
+//			out.println("<script>");
+//			out.println("alert('예약이 변경되었습니다.');");
+//			out.println("</script>");
+//			out.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "inquirDetail?id=" + reserv.getId();
+	}
+	
+	public String subDelete(HttpServletRequest request, HttpServletResponse response) {
+		Reservation reserv = new Reservation();
+		
+		try {
+			BeanUtils.populate(reserv, request.getParameterMap());
+			dao.subDelete(reserv);
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = response.getWriter();
+//			
+//			out.println("<script>");
+//			out.println("alert('예약이 취소되었습니다!');");
+//			out.println("const url = location.origin;");
+//			out.println("location.href = url + '/Bus/inquirDetail?id="+reserv.getId()+"';");
+//			out.println("</script>");
+//			out.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(reserv.getId());
+		return "inquirDetail?id=" + reserv.getId();
 	}
 }
