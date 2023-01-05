@@ -14,13 +14,8 @@
 	<%@include file="topmenu.jsp" %>
 		<section>
 			<div class="title">예약 조회</div>
-			<div>
-				<dl>
-					<dt>${id}</dt>
-					<dd>님의 예약 건</dd>
-				</dl>
-			</div>
-			<div class="wrapper">
+			<div class="subtitle">${id}님의 예약 건</div>
+			<div class="inq_wrapper">
 				<table>
 					<tr>
 						<th>예약코드</th>
@@ -53,7 +48,9 @@
 					<input type="hidden" name="id" value="${id}" />
 					</form>
 				</table>
+				<div class="back">
 				<button type="button" onclick="location.href='inquiry';">돌아가기</button>
+				</div>
 			</div>
 		</section>
 	<%@include file="footer.jsp"%>
