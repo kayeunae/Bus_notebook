@@ -57,10 +57,15 @@ input {
     width: 50%;
 }
 
+.id_input {
+	width: 200px !important;
+} 
+
 button{
 	width: 100px;
     border: none;
     box-shadow: darkgrey 2px 2px 2px;
+    cursor: pointer;
 }
 
 .wrapper{
@@ -107,13 +112,25 @@ button{
 
 .back {margin-top: 30px;}
 
-table {	width: 900px;}
+table {width: 900px;}
 
 table, tr, th, td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	height: 30px;
 }
+
+.reserv_table {
+	border: 1px solid black;
+	width: 100%;
+	height: 180px;
+}
+
+.reserv_table tbody tr{
+	border:none;
+}
+
+.reserv_table tbody tr td,th{border:none;}
 
 .sign_btn {
     width: 115px;
@@ -149,3 +166,15 @@ footer{
 .inq_input{padding: 5px 0 5px 3px; width:90% !important;font-size: 20px; }
 .inq_id{font-size: 20px;}
 .inq_frm{display:inline-block;padding: 30px 20px;}
+
+/* reservation.jsp */
+.semi {
+    margin-top: 20px;
+    width: 447px;
+    display:inline-block;
+}
+
+.semititle {
+	font-size: 18px;
+	font-weight: 900;
+}

@@ -47,6 +47,7 @@ function signUP() {
 	s.submit();
 }
 
+
 //inquiry.jsp
 function frm_inquiry_submit() {
 	var f = document.frm_inquiry;

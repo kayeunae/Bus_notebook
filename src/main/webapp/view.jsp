@@ -33,7 +33,7 @@
 						<td>${bus.duration}</td>
 						<td>${bus.charge}</td>
 						<td>
-							<button class="view_btn"><a href="./reservation?bus_no=${bus.bus_no}">예약</a></button>
+							<button class="view_btn" onclick="location.href='./reservation?bus_no=${bus.bus_no}';">예약</button>
 						</td>
 					</tr>
 					</c:forEach>
