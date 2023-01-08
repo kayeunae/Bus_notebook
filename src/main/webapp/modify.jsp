@@ -16,7 +16,7 @@
 		<div class="title">${modi.id} 님의 예약 건 수정</div>
 		<div class="wrapper noflex">
 			<div><!-- table -->
-				<table>
+				<table class="color">
 					<tr>
 						<th>예약코드</th>
 						<th>출발지</th>
@@ -46,10 +46,19 @@
 				<input type="hidden" id="in_tck" name="ticket" value="0" />
 				<input type="hidden" id="in_price" name="price" value="0" />
 				<div><!-- pay -->
-					<div class="semi">결제 정보</div>
-					<div><!-- pay2 -->
-						<table>
+					<table class="bottom_table">
+						<colgroup>
+							<col width="10%" />
+							<col width="40%" />
+							<col width="40%" />
+							<col width="10%" />
+						</colgroup>
+						<tbody>
 							<tr>
+								<th colspan="4" class="semititle">예약 수정</th>
+							</tr>
+							<tr>
+								<td></td>
 								<th>출발지-도착지 선택</th>
 								<td>
 									<select id="test" onchange="mdf_bus()">
@@ -60,11 +69,12 @@
 										</c:forEach>
 									</select>
 								</td>
+								<td></td>
 							</tr>
-						</table>
-						<dl>
-							<dt>예약 매수</dt>
-							<dd>
+							<tr>
+								<td></td>
+								<th>예약 매수</th>
+								<td>
 								<select id="tck" name="ticket" onchange="selectBoxValue()">
 									<option value=1 <c:if test="${modi.ticket eq 1}">selected</c:if>>1매</option>
 									<option value=2 <c:if test="${modi.ticket eq 2}">selected</c:if>>2매</option>
@@ -77,19 +87,23 @@
 									<option value=9 <c:if test="${modi.ticket eq 9}">selected</c:if>>9매</option>
 									<option value=10 <c:if test="${modi.ticket eq 10}">selected</c:if>>10매</option>
 								</select>
-							</dd>
-						</dl>
-						<dl>
-							<dt>결제 금액</dt>
-							<dd id="testfee" value="">원</dd>
-						</dl>
-					</div><!-- end of pay2 -->
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<th>결제 금액</th>
+								<td id="testfee" value="">원</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
 				</div><!-- end of pay -->
 			</form>
 			<div><!-- btn -->
-				<button type="button" onclick="mdf_submit();">예약 변경</button>
-				<button type="button" onclick="mdf_delete();">예약 취소</button>
-				<button type="button" onclick="location.href='inquirDetail?id=${modi.id}'">돌아가기
+				<button class="bigbtn" type="button" onclick="mdf_submit();">예약 변경</button>
+				<button class="bigbtn" type="button" onclick="mdf_delete();">예약 취소</button>
+				<button class="bigbtn" type="button" onclick="location.href='inquirDetail?id=${modi.id}'">돌아가기
 					<!-- <a href="view">돌아가기</a> -->
 				</button>
 			</div><!-- end of btn -->

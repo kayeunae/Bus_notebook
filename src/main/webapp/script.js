@@ -65,7 +65,7 @@ function inq_delete(value){
 	var f = document.frm_inq;
 	console.log(value);
 	if(confirm('예약을 취소하시겠습니까?')){
-		$('#ttest').val(value);
+		$('#delete_no').val(value);
 		f.submit();
 	} else return false;
 }

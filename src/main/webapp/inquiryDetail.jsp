@@ -16,7 +16,7 @@
 			<div class="title">예약 조회</div>
 			<div class="subtitle">${id}님의 예약 건</div>
 			<div class="inq_wrapper">
-				<table>
+				<table class="color">
 					<tr>
 						<th>예약코드</th>
 						<th>출발지</th>
@@ -36,20 +36,20 @@
 						<td>${inq.duration}</td>
 						<td>${inq.ticket}</td>
 						<td>
-							<button><a href="./modify?r_no=${inq.r_no}">예약 변경</a></button>
+							<button class="table_btn"><a href="./modify?r_no=${inq.r_no}">예약 변경</a></button>
 						</td>
 						<td>
-							<button type="button" onclick="inq_delete(${inq.r_no});">예약 취소</button>
+							<button class="table_btn" type="button" onclick="inq_delete(${inq.r_no});">예약 취소</button>
 						</td>
 					</tr>
 					</c:forEach>
 					<form name="frm_inq" method="post" action="delete">
-					<input id="ttest" type="hidden" name="r_no" value="0" />
+					<input id="delete_no" type="hidden" name="r_no" value="0" />
 					<input type="hidden" name="id" value="${id}" />
 					</form>
 				</table>
 				<div class="back">
-				<button type="button" onclick="location.href='inquiry';">돌아가기</button>
+				<button class="bigbtn" type="button" onclick="location.href='inquiry';">돌아가기</button>
 				</div>
 			</div>
 		</section>

@@ -15,12 +15,16 @@
 			<form style="text-align:center;" name="signForm" method="post" action="signUp">
 				<div class="title">회원가입</div>
 				<div class="wrapper">
-					<div class="back">
+					<div class="signback">
 						<table class="sign">
+							<colgroup>
+								<col width="40%">
+								<col width="60%">
+							</colgroup>
 							<tr>
 								<th>아이디</th>
 								<td><input type="text" id="id" name="id" maxlength="10"
-								placeholder="최대 10글자 입력 가능"></td>
+								placeholder="최대 10글자 입력 가능" size="300"></td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>

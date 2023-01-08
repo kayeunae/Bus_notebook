@@ -13,13 +13,13 @@
 	<%@include file="topmenu.jsp"%>
 	<section>
 		<div class="title">예약하기</div>
-		<div class="wrapper">
+		<div class="wrapper noflex">
 			<form name="frm" method="post" action="reserve">
 				<input type="hidden" name="bus_no" value="${bus.bus_no}" /> <input
 					type="hidden" id="fee" name="price" />
 				<div>
 					<!-- table -->
-					<table>
+					<table class="color">
 						<tr>
 							<th>차량코드</th>
 							<th>출발지</th>
@@ -44,9 +44,13 @@
 
 				<div class="semi">
 					<!-- pay -->
-					<table class="reserv_table">
+					<table class="bottom_table">
+						<colgroup>
+							<col width="40%">
+							<col width="60%">
+						</colgroup>
 						<tr>
-							<th colspan="2" class="semititle">결제 정보</th>
+							<th colspan="2" class="semititle st1">결제 정보</th>
 						</tr>
 						<tr>
 							<th>버스요금</th>
@@ -55,8 +59,7 @@
 						<tr>
 							<th>예약 매수</th>
 							<td>
-								<select id="tck" name="ticket">
-									onchange="selectBoxValue(this.value)">
+								<select id="tck" name="ticket" onchange="selectBoxValue(this.value)">
 									<option value="no">매수 선택</option>
 									<option value=1>1매</option>
 									<option value=2>2매</option>
@@ -81,9 +84,13 @@
 
 				<div class="semi">
 					<!-- user -->
-					<table class="reserv_table">
+					<table class="bottom_table">
+						<colgroup>
+							<col width="40%">
+							<col width="60%">
+						</colgroup>
 						<tr>
-							<th colspan="2" class="semititle">회원 정보</th>
+							<th colspan="2" class="semititle st2">회원 정보</th>
 						</tr>
 						<tr style="height: 91px;">
 							<th>아이디</th>
@@ -97,10 +104,10 @@
 				</div>
 				<!-- end of user -->
 			</form>
-			<div>
+			<div class="div_btn">
 				<!-- btn -->
-				<button type="button" onclick="frm_submit();">예약하기</button>
-				<button type="reset" href="view">
+				<button class="bigbtn" type="button" onclick="frm_submit();">예약하기</button>
+				<button class="bigbtn" type="reset" href="view">
 					돌아가기
 					<!-- <a href="view">돌아가기</a> -->
 				</button>
